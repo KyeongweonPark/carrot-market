@@ -1,96 +1,77 @@
 import type { NextPage } from "next";
 const Home: NextPage = () => {
   return (
-    <div className="grid min-h-screen gap-10 bg-slate-400 py-20 px-10 lg:grid-cols-2 xl:grid-cols-3 xl:place-content-center">
-      <div className="flex flex-col justify-between rounded-2xl bg-white p-6 shadow-xl sm:bg-red-400 md:bg-teal-400 lg:bg-indigo-400 xl:bg-amber-400">
-        <span className="text-2xl font-semibold">Select Item</span>
-
-        <ul>
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="my-2 flex justify-between odd:bg-blue-50 even:bg-yellow-50"
-            >
-              <span className="text-gray-500">Grey Chair</span>
-              <span className="font-semibold">$19</span>
-            </div>
-          ))}
-        </ul>
-
-        <div className="mt-2 flex justify-between border-t-2 border-dashed pt-2">
-          <span>Total</span>
-          <span className="font-semibold">$19</span>
-        </div>
-        <button
-          className="mx-auto mt-5 block w-2/4 rounded-xl bg-blue-500 p-2 text-center
-                     text-white hover:bg-teal-500 hover:text-black focus:bg-red-500 active:bg-yellow-500"
+    <div className="flex flex-col space-y-5 py-10">
+      {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
+        <div
+          key={i}
+          className="flex cursor-pointer justify-between border-b px-4 pb-4"
         >
-          Checkout
-        </button>
-      </div>
-      <div className="group overflow-hidden rounded-3xl bg-white shadow-xl">
-        <div className="bg-blue-500 p-6 pb-14 xl:pb-52 portrait:bg-orange-500 landscape:bg-teal-500">
-          <span className="text-2xl text-white">Profile</span>
-        </div>
-        <div className="relative -top-5 rounded-3xl bg-white p-6">
-          <div className="relative -top-16 flex items-end justify-between">
-            <div className="flex flex-col items-center">
-              <span className="text-sm text-gray-500">Orders</span>
-              <span className="font-medium">340</span>
-            </div>
-            <div className="h-24 w-24 rounded-full bg-red-100 transition-colors group-hover:bg-red-500" />
-            <div className="flex flex-col items-center">
-              <span className="text-sm text-gray-500">Spent</span>
-              <span className="font-medium">$3,210</span>
+          <div className="flex space-x-4">
+            <div className="h-20 w-20 rounded-md bg-gray-400" />
+            <div className="flex flex-col pt-2">
+              <h3 className="text-sm font-medium text-gray-900">
+                New iPhone 14
+              </h3>
+              <span className="text-xs text-gray-500">Black</span>
+              <span className="mt-1 font-medium text-gray-900">$95</span>
             </div>
           </div>
-          <div className="relative -mt-10 -mb-5 flex flex-col items-center">
-            <span className="text-lg font-medium">Tony Molloy</span>
-            <span className="text-sm text-gray-500">미국</span>
-          </div>
-        </div>
-      </div>
-      <div className="rounded-2xl bg-white p-10 shadow-xl lg:col-span-2 xl:col-span-1">
-        <div className="mb-5 flex items-center justify-between">
-          <div>
-            <span>←</span>
-          </div>
-          <div>
-            <div className="space-x-3">
-              <span className="text-yellow-500">★</span>
-              <span>4.9</span>
-              <span className="rounded-md p-2 text-red-500 shadow-xl">♥</span>
-            </div>
-          </div>
-        </div>
-        <div className="mb-5 h-72 bg-zinc-400" />
-        <div className="flex flex-col">
-          <span className="mb-1.5 text-xl font-medium">Swoon Lounge</span>
-          <span className="text-xs text-gray-500">Chair</span>
-          <div className="mt-3 mb-5 flex items-center justify-between">
-            <div className="space-x-2">
-              <button className="h-5 w-5 rounded-full bg-yellow-500 ring-yellow-500 ring-offset-2 transition focus:ring-2" />
-              <button className="h-5 w-5 rounded-full bg-indigo-500 ring-indigo-500 ring-offset-2 transition focus:ring-2" />
-              <button className="h-5 w-5 rounded-full bg-teal-500 ring-teal-500 ring-offset-2 transition focus:ring-2" />
-            </div>
-            <div className="flex items-center space-x-4">
-              <button className="flex aspect-square w-8 items-center justify-center rounded-lg bg-blue-200 text-xl font-medium text-gray-500">
-                -
-              </button>
+          <div className="itemds-end flex justify-end space-x-2">
+            <div className="flex items-center space-x-0.5 text-sm text-gray-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
               <span>1</span>
-              <button className="flex aspect-square w-8 items-center justify-center rounded-lg bg-blue-200 text-xl font-medium text-gray-500">
-                +
-              </button>
+            </div>
+            <div className="flex items-center space-x-0.5 text-sm text-gray-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                />
+              </svg>
+              <span>1</span>
             </div>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-lg font-medium">$450</span>
-            <button className="rounded-lg bg-blue-500 p-8 py-2 text-center text-white">
-              Add to Cart
-            </button>
-          </div>
         </div>
-      </div>
+      ))}
+      <button className="fixed bottom-24 right-5 cursor-pointer transition-colors rounded-full bg-orange-400 p-4 text-white shadow-sm hover:bg-orange-500">
+        <svg
+          className="h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth=""
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
+      </button>
     </div>
   );
 };
