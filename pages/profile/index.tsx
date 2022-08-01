@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import Layout from "../../components/layout";
 
 const Profile: NextPage = () => {
@@ -55,27 +56,29 @@ const Profile: NextPage = () => {
               구매내역
             </span>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-white">
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                ></path>
-              </svg>
+          <Link href="/profile/loved">
+            <div className="flex cursor-pointer flex-col items-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-white">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <span className="mt-2 text-sm font-medium text-gray-700">
+                관심목록
+              </span>
             </div>
-            <span className="mt-2 text-sm font-medium text-gray-700">
-              관심목록
-            </span>
-          </div>
+          </Link>
         </div>
         <div className="mt-12">
           <div className="flex items-center space-x-4">
