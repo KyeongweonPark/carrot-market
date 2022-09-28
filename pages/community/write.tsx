@@ -1,17 +1,49 @@
+import Button from "@components/button";
+import Layout from "@components/layout";
+import TextArea from "@components/textarea";
+import useCoords from "@libs/client/useCoords";
+import useMutation from "@libs/client/useMutation";
+import { Post } from "@prisma/client";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+
+interface WriteForm {
+  question: string;
+}
+
+interface WirteResponse {
+  ok: boolean;
+  post: Post;
+}
 
 const Write: NextPage = () => {
+  const {latitude, longitude} = useCoords();
+  const router = useRouter();
+  const { register, handleSubmit } = useForm<WriteForm>();
+  const [post, { loading, data }] = useMutation("/api/posts");
+  const onValid = (data: WriteForm) => {
+    if (loading) return;
+    post({...data, latitude, longitude});
+  };
+  useEffect(() => {
+    if (data && data.ok) {
+      router.push(`/community/${data.post.id}`);
+    }
+  }, [data, router]);
   return (
-    <form className="px-4 py-10">
-      <textarea
-        className="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 "
-        rows={4}
-        placeholder="Answer a question!"
-      />
-      <button className="mt-2 w-full rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 ">
-        Submit
-      </button>
-    </form>
+    <Layout canGoBack title="Wirte Post">
+      <form onSubmit={handleSubmit(onValid)} className="px-4 py-10">
+        <TextArea
+          register={register("question", { required: true, minLength: 5 })}
+          required
+          rows={4}
+          placeholder="Ask a question!"
+        />
+        <Button text={loading ? "Loading..." : "Submit"} />
+      </form>
+    </Layout>
   );
 };
 

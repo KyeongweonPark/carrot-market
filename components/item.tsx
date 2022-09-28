@@ -23,7 +23,7 @@ export default function Item({
           <div className="flex flex-col pt-2">
             <h3 className="text-sm font-medium text-gray-900">{title}</h3>
             <span className="text-xs text-gray-500">black</span>
-            <span className="mt-1 font-medium text-gray-900">${price}</span>
+            <span className="mt-1 font-medium text-gray-900">{price} ₩</span>
           </div>
         </div>
         <div className="flex items-end justify-end space-x-2">

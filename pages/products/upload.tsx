@@ -27,7 +27,6 @@ const Upload: NextPage = () => {
     useMutation<UploadProductMutation>("/api/products");
   const onValid = (data: UploadProductForm) => {
     if (loading) return;
-    console.log(data);
     uploadProduct(data);
   };
   useEffect(() => {
