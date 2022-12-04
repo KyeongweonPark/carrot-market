@@ -12,6 +12,17 @@ async function handler(
   } = req;
   const favs = await client.fav.findMany({
     where: { userId: user?.id },
+    include: {
+      product: {
+        include: {
+          _count: {
+            select: {
+              favs: true,
+            },
+          },
+        },
+      },
+    },
   });
   res.json({
     ok: true,

@@ -7,10 +7,10 @@ import Head from "next/head";
 import useSWR from "swr";
 import Layout from "../components/layout";
 
-interface ProductWithCount extends Product {
-  _count:{
+export interface ProductWithCount extends Product {
+  _count: {
     favs: number;
-  }
+  };
 }
 
 interface ProductResponse {
@@ -35,7 +35,6 @@ const Home: NextPage = () => {
             title={product.name}
             price={product.price}
             hearts={product._count.favs}
-            comments={1}
           />
         ))}
         <FloatingButton href="/products/upload">
